@@ -1,0 +1,9 @@
+(library
+ (name cs3110)
+ (public_name cs3110)
+ (preprocess (pps ppx_inline_test ppx_expect))
+ (inline_tests)
+ (libraries base))
+
+(env
+  (release (inline_tests enabled)))

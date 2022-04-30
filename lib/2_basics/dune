@@ -1,6 +1,6 @@
 (library
- (name cs3110)
- (public_name cs3110)
+ (name cs3110_basics)
+ (public_name cs3110.basics)
  (preprocess (pps ppx_inline_test ppx_expect))
  (inline_tests)
  (libraries base))

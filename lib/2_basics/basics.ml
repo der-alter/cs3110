@@ -49,7 +49,7 @@ let fib_fast n =
   h n 0 1
 
 (* let%test _ = fib_fast 3 = 2 *)
-let%test _ = fib_fast 7 = 13
+(* let%test _ = fib_fast 7 = 13 *)
 
 let rec first_negative f n =
   let res = f n in

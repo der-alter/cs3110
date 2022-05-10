@@ -21,8 +21,14 @@ let make_fifth_test name expected_output input =
 let make_sort_desc_test name expected_output input =
   name >:: fun _ -> assert_equal expected_output (sort_desc input)
 
+let make_take_test name expected_output (n, xs) =
+  name >:: fun _ -> assert_equal expected_output (take n xs)
+
+let make_drop_test name expected_output (n, xs) =
+  name >:: fun _ -> assert_equal expected_output (drop n xs)
+
 let tests =
-  "test suite for sum"
+  "test suite"
   >::: [
          make_sum_test "empty" 0 [];
          make_sum_test "singleton" 1 [1];
@@ -41,6 +47,10 @@ let tests =
          make_fifth_test "fifth" 6 [1; 2; 2; 4; 6];
          make_sort_desc_test "empty" [] [];
          make_sort_desc_test "empty" [3;2;1] [1;2;3];
+         make_take_test "empty" [] (3, []);
+         make_take_test "take 3" [3;4;4] (3, [3;4;4;5;6]);
+         make_drop_test "empty" [] (3, []);
+         make_drop_test "drop 3" [5;6] (3, [3;4;4;5;6]);
        ]
 
 let _ = run_test_tt_main tests
